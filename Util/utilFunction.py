@@ -99,20 +99,21 @@ def validUsefulProxy(proxy):
     proxies = {"http": "http://{proxy}".format(proxy=proxy)}
     try:
         # 超过20秒的代理就不要了
-        target = 'http://api.share.baidu.com/s.gif?l=http://www.dianmi.net/cluniabcd/'
-        headers = {
-            'Accept': 'image/webp,image/apng,image/*,*/*;q=0.8',
-            'Accept-Encoding': 'gzip, deflate',
-            'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-            'Connection': 'keep-alive',
-            'DNT': '1',
-            'Host': 'api.share.baidu.com',
-            'Referer': target,
-            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
-                          'Chrome/65.0.3325.181 Safari/537.36 Mozilla/5.0 (compatible; Baiduspider/2.0;'
-                          ' +http://www.baidu.com/search/spider.html)'
-        }
-        r = requests.get(target, proxies=proxies, timeout=20, verify=False, headers=headers)
+        # target = 'http://api.share.baidu.com/s.gif?l=http://www.aidshe.com/'
+        # headers = {
+        #     'Accept': 'image/webp,image/apng,image/*,*/*;q=0.8',
+        #     'Accept-Encoding': 'gzip, deflate',
+        #     'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+        #     'Connection': 'keep-alive',
+        #     'DNT': '1',
+        #     'Host': 'api.share.baidu.com',
+        #     'Referer': target,
+        #     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+        #                   'Chrome/65.0.3325.181 Safari/537.36 Mozilla/5.0 (compatible; Baiduspider/2.0;'
+        #                   ' +http://www.baidu.com/search/spider.html)'
+        # }
+        # r = requests.get(target, proxies=proxies, timeout=20, verify=False, headers=headers)
+        r = requests.get('http://www.baidu.com', proxies=proxies, timeout=20, verify=False)
         if r.status_code == 200:
             # logger.info('%s is ok' % proxy)
             return True
